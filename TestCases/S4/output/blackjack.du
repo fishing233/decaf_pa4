@@ -1,0 +1,1705 @@
+FUNCTION _rndModule_New : 
+BASIC BLOCK 0 : 
+1	_T42 = 8 [ ]
+2	parm _T42
+3	_T43 =  call _Alloc [ ]
+4	_T44 = 0 [ ]
+5	*(_T43 + 4) = _T44
+6	_T45 = VTBL <_rndModule> [ ]
+7	*(_T43 + 0) = _T45
+8	END BY RETURN, result = _T43
+
+FUNCTION _Deck_New : 
+BASIC BLOCK 0 : 
+9	_T46 = 16 [ ]
+10	parm _T46
+11	_T47 =  call _Alloc [ ]
+12	_T48 = 0 [ ]
+13	*(_T47 + 4) = _T48
+14	*(_T47 + 8) = _T48
+15	*(_T47 + 12) = _T48
+16	_T49 = VTBL <_Deck> [ ]
+17	*(_T47 + 0) = _T49
+18	END BY RETURN, result = _T47
+
+FUNCTION _BJDeck_New : 
+BASIC BLOCK 0 : 
+19	_T50 = 16 [ ]
+20	parm _T50
+21	_T51 =  call _Alloc [ ]
+22	_T52 = 0 [ ]
+23	*(_T51 + 4) = _T52
+24	*(_T51 + 8) = _T52
+25	*(_T51 + 12) = _T52
+26	_T53 = VTBL <_BJDeck> [ ]
+27	*(_T51 + 0) = _T53
+28	END BY RETURN, result = _T51
+
+FUNCTION _Player_New : 
+BASIC BLOCK 0 : 
+29	_T54 = 28 [ ]
+30	parm _T54
+31	_T55 =  call _Alloc [ ]
+32	_T56 = 0 [ ]
+33	_T57 = 4 [ ]
+34	_T58 = (_T55 + _T54) [ ]
+35	END BY BRANCH, goto 1
+BASIC BLOCK 1 : 
+36	_T59 = (_T58 - _T57) [ ]
+37	_T58 = _T59 [ ]
+38	_T60 = (_T54 - _T57) [ ]
+39	_T54 = _T60 [ ]
+40	END BY BEQZ, if _T54 = 
+	    0 : goto 3; 1 : goto 2
+BASIC BLOCK 2 : 
+41	*(_T58 + 0) = _T56
+42	END BY BRANCH, goto 1
+BASIC BLOCK 3 : 
+43	_T61 = VTBL <_Player> [ ]
+44	*(_T58 + 0) = _T61
+45	END BY RETURN, result = _T58
+
+FUNCTION _Dealer_New : 
+BASIC BLOCK 0 : 
+46	_T62 = 28 [ ]
+47	parm _T62
+48	_T63 =  call _Alloc [ ]
+49	_T64 = 0 [ ]
+50	_T65 = 4 [ ]
+51	_T66 = (_T63 + _T62) [ ]
+52	END BY BRANCH, goto 1
+BASIC BLOCK 1 : 
+53	_T67 = (_T66 - _T65) [ ]
+54	_T66 = _T67 [ ]
+55	_T68 = (_T62 - _T65) [ ]
+56	_T62 = _T68 [ ]
+57	END BY BEQZ, if _T62 = 
+	    0 : goto 3; 1 : goto 2
+BASIC BLOCK 2 : 
+58	*(_T66 + 0) = _T64
+59	END BY BRANCH, goto 1
+BASIC BLOCK 3 : 
+60	_T69 = VTBL <_Dealer> [ ]
+61	*(_T66 + 0) = _T69
+62	END BY RETURN, result = _T66
+
+FUNCTION _House_New : 
+BASIC BLOCK 0 : 
+63	_T70 = 16 [ ]
+64	parm _T70
+65	_T71 =  call _Alloc [ ]
+66	_T72 = 0 [ ]
+67	*(_T71 + 4) = _T72
+68	*(_T71 + 8) = _T72
+69	*(_T71 + 12) = _T72
+70	_T73 = VTBL <_House> [ ]
+71	*(_T71 + 0) = _T73
+72	END BY RETURN, result = _T71
+
+FUNCTION _Main_New : 
+BASIC BLOCK 0 : 
+73	_T74 = 4 [ ]
+74	parm _T74
+75	_T75 =  call _Alloc [ ]
+76	_T76 = VTBL <_Main> [ ]
+77	*(_T75 + 0) = _T76
+78	END BY RETURN, result = _T75
+
+FUNCTION _rndModule.Init : 
+BASIC BLOCK 0 : 
+79	_T77 = *(_T0 + 4) [ ]
+80	*(_T0 + 4) = _T1
+81	END BY RETURN, void result
+
+FUNCTION _rndModule.Random : 
+BASIC BLOCK 0 : 
+82	_T78 = *(_T2 + 4) [ ]
+83	_T79 = 15625 [ ]
+84	_T80 = *(_T2 + 4) [ ]
+85	_T81 = 10000 [ ]
+86	_T82 = (_T80 % _T81) [ ]
+87	_T83 = (_T79 * _T82) [ ]
+88	_T84 = 22221 [ ]
+89	_T85 = (_T83 + _T84) [ ]
+90	_T86 = 65536 [ ]
+91	_T87 = (_T85 % _T86) [ ]
+92	*(_T2 + 4) = _T87
+93	_T88 = *(_T2 + 4) [ ]
+94	END BY RETURN, result = _T88
+
+FUNCTION _rndModule.RndInt : 
+BASIC BLOCK 0 : 
+95	parm _T3
+96	_T89 = *(_T3 + 0) [ ]
+97	_T90 = *(_T89 + 12) [ ]
+98	_T91 =  call _T90 [ ]
+99	_T92 = (_T91 % _T4) [ ]
+100	END BY RETURN, result = _T92
+
+FUNCTION _Deck.Init : 
+BASIC BLOCK 0 : 
+101	_T93 = *(_T5 + 8) [ ]
+102	_T94 = 52 [ ]
+103	_T95 = 0 [ ]
+104	_T96 = (_T94 < _T95) [ ]
+105	END BY BEQZ, if _T96 = 
+	    0 : goto 2; 1 : goto 1
+BASIC BLOCK 1 : 
+106	_T97 = "Decaf runtime error: Cannot create negative-sized array\n" [ ]
+107	parm _T97
+108	call _PrintString
+109	call _Halt
+110	END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+111	_T98 = 4 [ ]
+112	_T99 = (_T98 * _T94) [ ]
+113	_T100 = (_T98 + _T99) [ ]
+114	parm _T100
+115	_T101 =  call _Alloc [ ]
+116	*(_T101 + 0) = _T94
+117	_T102 = 0 [ ]
+118	_T101 = (_T101 + _T100) [ ]
+119	END BY BRANCH, goto 3
+BASIC BLOCK 3 : 
+120	_T100 = (_T100 - _T98) [ ]
+121	END BY BEQZ, if _T100 = 
+	    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+122	_T101 = (_T101 - _T98) [ ]
+123	*(_T101 + 0) = _T102
+124	END BY BRANCH, goto 3
+BASIC BLOCK 5 : 
+125	*(_T5 + 8) = _T101
+126	_T103 = *(_T5 + 12) [ ]
+127	*(_T5 + 12) = _T6
+128	END BY RETURN, void result
+
+FUNCTION _Deck.Shuffle : 
+BASIC BLOCK 0 : 
+129	_T104 = *(_T7 + 4) [ ]
+130	_T105 = 1 [ ]
+131	*(_T7 + 4) = _T105
+132	END BY BRANCH, goto 2
+BASIC BLOCK 1 : 
+133	_T106 = *(_T7 + 4) [ ]
+134	_T107 = *(_T7 + 4) [ ]
+135	_T108 = 1 [ ]
+136	_T109 = (_T107 + _T108) [ ]
+137	*(_T7 + 4) = _T109
+138	END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+139	_T110 = *(_T7 + 4) [ ]
+140	_T111 = 52 [ ]
+141	_T112 = (_T110 <= _T111) [ ]
+142	END BY BEQZ, if _T112 = 
+	    0 : goto 7; 1 : goto 3
+BASIC BLOCK 3 : 
+143	_T113 = *(_T7 + 8) [ ]
+144	_T114 = *(_T7 + 4) [ ]
+145	_T115 = 1 [ ]
+146	_T116 = (_T114 - _T115) [ ]
+147	_T117 = *(_T113 - 4) [ ]
+148	_T118 = (_T116 < _T117) [ ]
+149	END BY BEQZ, if _T118 = 
+	    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+150	_T119 = 0 [ ]
+151	_T120 = (_T116 < _T119) [ ]
+152	END BY BEQZ, if _T120 = 
+	    0 : goto 6; 1 : goto 5
+BASIC BLOCK 5 : 
+153	_T121 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+154	parm _T121
+155	call _PrintString
+156	call _Halt
+157	END BY BRANCH, goto 6
+BASIC BLOCK 6 : 
+158	_T122 = 4 [ ]
+159	_T123 = (_T116 * _T122) [ ]
+160	_T124 = (_T113 + _T123) [ ]
+161	_T125 = *(_T124 + 0) [ ]
+162	_T126 = *(_T7 + 4) [ ]
+163	_T127 = 13 [ ]
+164	_T128 = (_T126 % _T127) [ ]
+165	_T129 = 4 [ ]
+166	_T130 = (_T116 * _T129) [ ]
+167	_T131 = (_T113 + _T130) [ ]
+168	*(_T131 + 0) = _T128
+169	END BY BRANCH, goto 1
+BASIC BLOCK 7 : 
+170	_T132 = *(_T7 + 4) [ ]
+171	_T133 = *(_T7 + 4) [ ]
+172	_T134 = 1 [ ]
+173	_T135 = (_T133 - _T134) [ ]
+174	*(_T7 + 4) = _T135
+175	END BY BRANCH, goto 8
+BASIC BLOCK 8 : 
+176	_T136 = *(_T7 + 4) [ ]
+177	_T137 = 0 [ ]
+178	_T138 = (_T136 > _T137) [ ]
+179	END BY BEQZ, if _T138 = 
+	    0 : goto 22; 1 : goto 9
+BASIC BLOCK 9 : 
+180	_T141 = *(_T7 + 12) [ ]
+181	_T142 = *(_T7 + 4) [ ]
+182	parm _T141
+183	parm _T142
+184	_T143 = *(_T141 + 0) [ ]
+185	_T144 = *(_T143 + 16) [ ]
+186	_T145 =  call _T144 [ ]
+187	_T139 = _T145 [ ]
+188	_T146 = *(_T7 + 4) [ ]
+189	_T147 = *(_T7 + 4) [ ]
+190	_T148 = 1 [ ]
+191	_T149 = (_T147 - _T148) [ ]
+192	*(_T7 + 4) = _T149
+193	_T150 = *(_T7 + 8) [ ]
+194	_T151 = *(_T7 + 4) [ ]
+195	_T152 = *(_T150 - 4) [ ]
+196	_T153 = (_T151 < _T152) [ ]
+197	END BY BEQZ, if _T153 = 
+	    0 : goto 11; 1 : goto 10
+BASIC BLOCK 10 : 
+198	_T154 = 0 [ ]
+199	_T155 = (_T151 < _T154) [ ]
+200	END BY BEQZ, if _T155 = 
+	    0 : goto 12; 1 : goto 11
+BASIC BLOCK 11 : 
+201	_T156 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+202	parm _T156
+203	call _PrintString
+204	call _Halt
+205	END BY BRANCH, goto 12
+BASIC BLOCK 12 : 
+206	_T157 = 4 [ ]
+207	_T158 = (_T151 * _T157) [ ]
+208	_T159 = (_T150 + _T158) [ ]
+209	_T160 = *(_T159 + 0) [ ]
+210	_T140 = _T160 [ ]
+211	_T161 = *(_T7 + 8) [ ]
+212	_T162 = *(_T7 + 4) [ ]
+213	_T163 = *(_T161 - 4) [ ]
+214	_T164 = (_T162 < _T163) [ ]
+215	END BY BEQZ, if _T164 = 
+	    0 : goto 14; 1 : goto 13
+BASIC BLOCK 13 : 
+216	_T165 = 0 [ ]
+217	_T166 = (_T162 < _T165) [ ]
+218	END BY BEQZ, if _T166 = 
+	    0 : goto 15; 1 : goto 14
+BASIC BLOCK 14 : 
+219	_T167 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+220	parm _T167
+221	call _PrintString
+222	call _Halt
+223	END BY BRANCH, goto 15
+BASIC BLOCK 15 : 
+224	_T168 = 4 [ ]
+225	_T169 = (_T162 * _T168) [ ]
+226	_T170 = (_T161 + _T169) [ ]
+227	_T171 = *(_T170 + 0) [ ]
+228	_T172 = *(_T7 + 8) [ ]
+229	_T173 = *(_T172 - 4) [ ]
+230	_T174 = (_T139 < _T173) [ ]
+231	END BY BEQZ, if _T174 = 
+	    0 : goto 17; 1 : goto 16
+BASIC BLOCK 16 : 
+232	_T175 = 0 [ ]
+233	_T176 = (_T139 < _T175) [ ]
+234	END BY BEQZ, if _T176 = 
+	    0 : goto 18; 1 : goto 17
+BASIC BLOCK 17 : 
+235	_T177 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+236	parm _T177
+237	call _PrintString
+238	call _Halt
+239	END BY BRANCH, goto 18
+BASIC BLOCK 18 : 
+240	_T178 = 4 [ ]
+241	_T179 = (_T139 * _T178) [ ]
+242	_T180 = (_T172 + _T179) [ ]
+243	_T181 = *(_T180 + 0) [ ]
+244	_T182 = 4 [ ]
+245	_T183 = (_T162 * _T182) [ ]
+246	_T184 = (_T161 + _T183) [ ]
+247	*(_T184 + 0) = _T181
+248	_T185 = *(_T7 + 8) [ ]
+249	_T186 = *(_T185 - 4) [ ]
+250	_T187 = (_T139 < _T186) [ ]
+251	END BY BEQZ, if _T187 = 
+	    0 : goto 20; 1 : goto 19
+BASIC BLOCK 19 : 
+252	_T188 = 0 [ ]
+253	_T189 = (_T139 < _T188) [ ]
+254	END BY BEQZ, if _T189 = 
+	    0 : goto 21; 1 : goto 20
+BASIC BLOCK 20 : 
+255	_T190 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+256	parm _T190
+257	call _PrintString
+258	call _Halt
+259	END BY BRANCH, goto 21
+BASIC BLOCK 21 : 
+260	_T191 = 4 [ ]
+261	_T192 = (_T139 * _T191) [ ]
+262	_T193 = (_T185 + _T192) [ ]
+263	_T194 = *(_T193 + 0) [ ]
+264	_T195 = 4 [ ]
+265	_T196 = (_T139 * _T195) [ ]
+266	_T197 = (_T185 + _T196) [ ]
+267	*(_T197 + 0) = _T140
+268	END BY BRANCH, goto 8
+BASIC BLOCK 22 : 
+269	END BY RETURN, void result
+
+FUNCTION _Deck.GetCard : 
+BASIC BLOCK 0 : 
+270	_T199 = *(_T8 + 4) [ ]
+271	_T200 = 52 [ ]
+272	_T201 = (_T199 >= _T200) [ ]
+273	END BY BEQZ, if _T201 = 
+	    0 : goto 2; 1 : goto 1
+BASIC BLOCK 1 : 
+274	_T202 = 0 [ ]
+275	END BY RETURN, result = _T202
+BASIC BLOCK 2 : 
+276	_T203 = *(_T8 + 8) [ ]
+277	_T204 = *(_T8 + 4) [ ]
+278	_T205 = *(_T203 - 4) [ ]
+279	_T206 = (_T204 < _T205) [ ]
+280	END BY BEQZ, if _T206 = 
+	    0 : goto 4; 1 : goto 3
+BASIC BLOCK 3 : 
+281	_T207 = 0 [ ]
+282	_T208 = (_T204 < _T207) [ ]
+283	END BY BEQZ, if _T208 = 
+	    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+284	_T209 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+285	parm _T209
+286	call _PrintString
+287	call _Halt
+288	END BY BRANCH, goto 5
+BASIC BLOCK 5 : 
+289	_T210 = 4 [ ]
+290	_T211 = (_T204 * _T210) [ ]
+291	_T212 = (_T203 + _T211) [ ]
+292	_T213 = *(_T212 + 0) [ ]
+293	_T198 = _T213 [ ]
+294	_T214 = *(_T8 + 4) [ ]
+295	_T215 = *(_T8 + 4) [ ]
+296	_T216 = 1 [ ]
+297	_T217 = (_T215 + _T216) [ ]
+298	*(_T8 + 4) = _T217
+299	END BY RETURN, result = _T198
+
+FUNCTION _BJDeck.Init : 
+BASIC BLOCK 0 : 
+300	_T219 = *(_T9 + 4) [ ]
+301	_T220 = 8 [ ]
+302	_T221 = 0 [ ]
+303	_T222 = (_T220 < _T221) [ ]
+304	END BY BEQZ, if _T222 = 
+	    0 : goto 2; 1 : goto 1
+BASIC BLOCK 1 : 
+305	_T223 = "Decaf runtime error: Cannot create negative-sized array\n" [ ]
+306	parm _T223
+307	call _PrintString
+308	call _Halt
+309	END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+310	_T224 = 4 [ ]
+311	_T225 = (_T224 * _T220) [ ]
+312	_T226 = (_T224 + _T225) [ ]
+313	parm _T226
+314	_T227 =  call _Alloc [ ]
+315	*(_T227 + 0) = _T220
+316	_T228 = 0 [ ]
+317	_T227 = (_T227 + _T226) [ ]
+318	END BY BRANCH, goto 3
+BASIC BLOCK 3 : 
+319	_T226 = (_T226 - _T224) [ ]
+320	END BY BEQZ, if _T226 = 
+	    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+321	_T227 = (_T227 - _T224) [ ]
+322	*(_T227 + 0) = _T228
+323	END BY BRANCH, goto 3
+BASIC BLOCK 5 : 
+324	*(_T9 + 4) = _T227
+325	_T229 = 0 [ ]
+326	_T218 = _T229 [ ]
+327	END BY BRANCH, goto 7
+BASIC BLOCK 6 : 
+328	_T230 = 1 [ ]
+329	_T231 = (_T218 + _T230) [ ]
+330	_T218 = _T231 [ ]
+331	END BY BRANCH, goto 7
+BASIC BLOCK 7 : 
+332	_T232 = 8 [ ]
+333	_T233 = (_T218 < _T232) [ ]
+334	END BY BEQZ, if _T233 = 
+	    0 : goto 15; 1 : goto 8
+BASIC BLOCK 8 : 
+335	_T234 = *(_T9 + 4) [ ]
+336	_T235 = *(_T234 - 4) [ ]
+337	_T236 = (_T218 < _T235) [ ]
+338	END BY BEQZ, if _T236 = 
+	    0 : goto 10; 1 : goto 9
+BASIC BLOCK 9 : 
+339	_T237 = 0 [ ]
+340	_T238 = (_T218 < _T237) [ ]
+341	END BY BEQZ, if _T238 = 
+	    0 : goto 11; 1 : goto 10
+BASIC BLOCK 10 : 
+342	_T239 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+343	parm _T239
+344	call _PrintString
+345	call _Halt
+346	END BY BRANCH, goto 11
+BASIC BLOCK 11 : 
+347	_T240 = 4 [ ]
+348	_T241 = (_T218 * _T240) [ ]
+349	_T242 = (_T234 + _T241) [ ]
+350	_T243 = *(_T242 + 0) [ ]
+351	_T244 =  call _Deck_New [ ]
+352	_T245 = 4 [ ]
+353	_T246 = (_T218 * _T245) [ ]
+354	_T247 = (_T234 + _T246) [ ]
+355	*(_T247 + 0) = _T244
+356	_T248 = *(_T9 + 4) [ ]
+357	_T249 = *(_T248 - 4) [ ]
+358	_T250 = (_T218 < _T249) [ ]
+359	END BY BEQZ, if _T250 = 
+	    0 : goto 13; 1 : goto 12
+BASIC BLOCK 12 : 
+360	_T251 = 0 [ ]
+361	_T252 = (_T218 < _T251) [ ]
+362	END BY BEQZ, if _T252 = 
+	    0 : goto 14; 1 : goto 13
+BASIC BLOCK 13 : 
+363	_T253 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+364	parm _T253
+365	call _PrintString
+366	call _Halt
+367	END BY BRANCH, goto 14
+BASIC BLOCK 14 : 
+368	_T254 = 4 [ ]
+369	_T255 = (_T218 * _T254) [ ]
+370	_T256 = (_T248 + _T255) [ ]
+371	_T257 = *(_T256 + 0) [ ]
+372	parm _T257
+373	parm _T10
+374	_T258 = *(_T257 + 0) [ ]
+375	_T259 = *(_T258 + 8) [ ]
+376	call _T259
+377	END BY BRANCH, goto 6
+BASIC BLOCK 15 : 
+378	_T260 = *(_T9 + 12) [ ]
+379	*(_T9 + 12) = _T10
+380	END BY RETURN, void result
+
+FUNCTION _BJDeck.DealCard : 
+BASIC BLOCK 0 : 
+381	_T262 = 0 [ ]
+382	_T261 = _T262 [ ]
+383	_T263 = *(_T11 + 8) [ ]
+384	_T264 = 8 [ ]
+385	_T265 = 52 [ ]
+386	_T266 = (_T264 * _T265) [ ]
+387	_T267 = (_T263 >= _T266) [ ]
+388	END BY BEQZ, if _T267 = 
+	    0 : goto 2; 1 : goto 1
+BASIC BLOCK 1 : 
+389	_T268 = 11 [ ]
+390	END BY RETURN, result = _T268
+BASIC BLOCK 2 : 
+391	_T269 = 0 [ ]
+392	_T270 = (_T261 == _T269) [ ]
+393	END BY BEQZ, if _T270 = 
+	    0 : goto 7; 1 : goto 3
+BASIC BLOCK 3 : 
+394	_T272 = *(_T11 + 12) [ ]
+395	_T273 = 8 [ ]
+396	parm _T272
+397	parm _T273
+398	_T274 = *(_T272 + 0) [ ]
+399	_T275 = *(_T274 + 16) [ ]
+400	_T276 =  call _T275 [ ]
+401	_T271 = _T276 [ ]
+402	_T277 = *(_T11 + 4) [ ]
+403	_T278 = *(_T277 - 4) [ ]
+404	_T279 = (_T271 < _T278) [ ]
+405	END BY BEQZ, if _T279 = 
+	    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+406	_T280 = 0 [ ]
+407	_T281 = (_T271 < _T280) [ ]
+408	END BY BEQZ, if _T281 = 
+	    0 : goto 6; 1 : goto 5
+BASIC BLOCK 5 : 
+409	_T282 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+410	parm _T282
+411	call _PrintString
+412	call _Halt
+413	END BY BRANCH, goto 6
+BASIC BLOCK 6 : 
+414	_T283 = 4 [ ]
+415	_T284 = (_T271 * _T283) [ ]
+416	_T285 = (_T277 + _T284) [ ]
+417	_T286 = *(_T285 + 0) [ ]
+418	parm _T286
+419	_T287 = *(_T286 + 0) [ ]
+420	_T288 = *(_T287 + 16) [ ]
+421	_T289 =  call _T288 [ ]
+422	_T261 = _T289 [ ]
+423	END BY BRANCH, goto 2
+BASIC BLOCK 7 : 
+424	_T290 = 10 [ ]
+425	_T291 = (_T261 > _T290) [ ]
+426	END BY BEQZ, if _T291 = 
+	    0 : goto 9; 1 : goto 8
+BASIC BLOCK 8 : 
+427	_T292 = 10 [ ]
+428	_T261 = _T292 [ ]
+429	END BY BRANCH, goto 11
+BASIC BLOCK 9 : 
+430	_T293 = 1 [ ]
+431	_T294 = (_T261 == _T293) [ ]
+432	END BY BEQZ, if _T294 = 
+	    0 : goto 11; 1 : goto 10
+BASIC BLOCK 10 : 
+433	_T295 = 11 [ ]
+434	_T261 = _T295 [ ]
+435	END BY BRANCH, goto 11
+BASIC BLOCK 11 : 
+436	_T296 = *(_T11 + 8) [ ]
+437	_T297 = *(_T11 + 8) [ ]
+438	_T298 = 1 [ ]
+439	_T299 = (_T297 + _T298) [ ]
+440	*(_T11 + 8) = _T299
+441	END BY RETURN, result = _T261
+
+FUNCTION _BJDeck.Shuffle : 
+BASIC BLOCK 0 : 
+442	_T301 = "Shuffling..." [ ]
+443	parm _T301
+444	call _PrintString
+445	_T302 = 0 [ ]
+446	_T300 = _T302 [ ]
+447	END BY BRANCH, goto 2
+BASIC BLOCK 1 : 
+448	_T303 = 1 [ ]
+449	_T304 = (_T300 + _T303) [ ]
+450	_T300 = _T304 [ ]
+451	END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+452	_T305 = 8 [ ]
+453	_T306 = (_T300 < _T305) [ ]
+454	END BY BEQZ, if _T306 = 
+	    0 : goto 7; 1 : goto 3
+BASIC BLOCK 3 : 
+455	_T307 = *(_T12 + 4) [ ]
+456	_T308 = *(_T307 - 4) [ ]
+457	_T309 = (_T300 < _T308) [ ]
+458	END BY BEQZ, if _T309 = 
+	    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+459	_T310 = 0 [ ]
+460	_T311 = (_T300 < _T310) [ ]
+461	END BY BEQZ, if _T311 = 
+	    0 : goto 6; 1 : goto 5
+BASIC BLOCK 5 : 
+462	_T312 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+463	parm _T312
+464	call _PrintString
+465	call _Halt
+466	END BY BRANCH, goto 6
+BASIC BLOCK 6 : 
+467	_T313 = 4 [ ]
+468	_T314 = (_T300 * _T313) [ ]
+469	_T315 = (_T307 + _T314) [ ]
+470	_T316 = *(_T315 + 0) [ ]
+471	parm _T316
+472	_T317 = *(_T316 + 0) [ ]
+473	_T318 = *(_T317 + 12) [ ]
+474	call _T318
+475	END BY BRANCH, goto 1
+BASIC BLOCK 7 : 
+476	_T319 = *(_T12 + 8) [ ]
+477	_T320 = 0 [ ]
+478	*(_T12 + 8) = _T320
+479	_T321 = "done.\n" [ ]
+480	parm _T321
+481	call _PrintString
+482	END BY RETURN, void result
+
+FUNCTION _BJDeck.NumCardsRemaining : 
+BASIC BLOCK 0 : 
+483	_T322 = 8 [ ]
+484	_T323 = 52 [ ]
+485	_T324 = (_T322 * _T323) [ ]
+486	_T325 = *(_T13 + 8) [ ]
+487	_T326 = (_T324 - _T325) [ ]
+488	END BY RETURN, result = _T326
+
+FUNCTION _Player.Init : 
+BASIC BLOCK 0 : 
+489	_T327 = *(_T14 + 20) [ ]
+490	_T328 = 1000 [ ]
+491	*(_T14 + 20) = _T328
+492	_T329 = "What is the name of player #" [ ]
+493	parm _T329
+494	call _PrintString
+495	parm _T15
+496	call _PrintInt
+497	_T330 = "? " [ ]
+498	parm _T330
+499	call _PrintString
+500	_T331 = *(_T14 + 24) [ ]
+501	_T332 =  call _ReadLine [ ]
+502	*(_T14 + 24) = _T332
+503	END BY RETURN, void result
+
+FUNCTION _Player.Hit : 
+BASIC BLOCK 0 : 
+504	parm _T17
+505	_T334 = *(_T17 + 0) [ ]
+506	_T335 = *(_T334 + 12) [ ]
+507	_T336 =  call _T335 [ ]
+508	_T333 = _T336 [ ]
+509	_T337 = *(_T16 + 24) [ ]
+510	parm _T337
+511	call _PrintString
+512	_T338 = " was dealt a " [ ]
+513	parm _T338
+514	call _PrintString
+515	parm _T333
+516	call _PrintInt
+517	_T339 = ".\n" [ ]
+518	parm _T339
+519	call _PrintString
+520	_T340 = *(_T16 + 4) [ ]
+521	_T341 = *(_T16 + 4) [ ]
+522	_T342 = (_T341 + _T333) [ ]
+523	*(_T16 + 4) = _T342
+524	_T343 = *(_T16 + 12) [ ]
+525	_T344 = *(_T16 + 12) [ ]
+526	_T345 = 1 [ ]
+527	_T346 = (_T344 + _T345) [ ]
+528	*(_T16 + 12) = _T346
+529	_T347 = 11 [ ]
+530	_T348 = (_T333 == _T347) [ ]
+531	END BY BEQZ, if _T348 = 
+	    0 : goto 2; 1 : goto 1
+BASIC BLOCK 1 : 
+532	_T349 = *(_T16 + 8) [ ]
+533	_T350 = *(_T16 + 8) [ ]
+534	_T351 = 1 [ ]
+535	_T352 = (_T350 + _T351) [ ]
+536	*(_T16 + 8) = _T352
+537	END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+538	_T353 = *(_T16 + 4) [ ]
+539	_T354 = 21 [ ]
+540	_T355 = (_T353 > _T354) [ ]
+541	_T356 = *(_T16 + 8) [ ]
+542	_T357 = 0 [ ]
+543	_T358 = (_T356 > _T357) [ ]
+544	_T359 = (_T355 && _T358) [ ]
+545	END BY BEQZ, if _T359 = 
+	    0 : goto 4; 1 : goto 3
+BASIC BLOCK 3 : 
+546	_T360 = *(_T16 + 4) [ ]
+547	_T361 = *(_T16 + 4) [ ]
+548	_T362 = 10 [ ]
+549	_T363 = (_T361 - _T362) [ ]
+550	*(_T16 + 4) = _T363
+551	_T364 = *(_T16 + 8) [ ]
+552	_T365 = *(_T16 + 8) [ ]
+553	_T366 = 1 [ ]
+554	_T367 = (_T365 - _T366) [ ]
+555	*(_T16 + 8) = _T367
+556	END BY BRANCH, goto 2
+BASIC BLOCK 4 : 
+557	END BY RETURN, void result
+
+FUNCTION _Player.DoubleDown : 
+BASIC BLOCK 0 : 
+558	_T369 = *(_T18 + 4) [ ]
+559	_T370 = 10 [ ]
+560	_T371 = (_T369 != _T370) [ ]
+561	_T372 = *(_T18 + 4) [ ]
+562	_T373 = 11 [ ]
+563	_T374 = (_T372 != _T373) [ ]
+564	_T375 = (_T371 && _T374) [ ]
+565	END BY BEQZ, if _T375 = 
+	    0 : goto 2; 1 : goto 1
+BASIC BLOCK 1 : 
+566	_T376 = 0 [ ]
+567	END BY RETURN, result = _T376
+BASIC BLOCK 2 : 
+568	_T377 = "Would you like to double down?" [ ]
+569	parm _T18
+570	parm _T377
+571	_T378 = *(_T18 + 0) [ ]
+572	_T379 = *(_T378 + 44) [ ]
+573	_T380 =  call _T379 [ ]
+574	END BY BEQZ, if _T380 = 
+	    0 : goto 4; 1 : goto 3
+BASIC BLOCK 3 : 
+575	_T381 = *(_T18 + 16) [ ]
+576	_T382 = *(_T18 + 16) [ ]
+577	_T383 = 2 [ ]
+578	_T384 = (_T382 * _T383) [ ]
+579	*(_T18 + 16) = _T384
+580	parm _T18
+581	parm _T19
+582	_T385 = *(_T18 + 0) [ ]
+583	_T386 = *(_T385 + 12) [ ]
+584	call _T386
+585	_T387 = *(_T18 + 24) [ ]
+586	parm _T387
+587	call _PrintString
+588	_T388 = ", your total is " [ ]
+589	parm _T388
+590	call _PrintString
+591	_T389 = *(_T18 + 4) [ ]
+592	parm _T389
+593	call _PrintInt
+594	_T390 = ".\n" [ ]
+595	parm _T390
+596	call _PrintString
+597	_T391 = 1 [ ]
+598	END BY RETURN, result = _T391
+BASIC BLOCK 4 : 
+599	_T392 = 0 [ ]
+600	END BY RETURN, result = _T392
+BASIC BLOCK 5 : 
+601	END BY RETURN, void result
+
+FUNCTION _Player.TakeTurn : 
+BASIC BLOCK 0 : 
+602	_T394 = "\n" [ ]
+603	parm _T394
+604	call _PrintString
+605	_T395 = *(_T20 + 24) [ ]
+606	parm _T395
+607	call _PrintString
+608	_T396 = "'s turn.\n" [ ]
+609	parm _T396
+610	call _PrintString
+611	_T397 = *(_T20 + 4) [ ]
+612	_T398 = 0 [ ]
+613	*(_T20 + 4) = _T398
+614	_T399 = *(_T20 + 8) [ ]
+615	_T400 = 0 [ ]
+616	*(_T20 + 8) = _T400
+617	_T401 = *(_T20 + 12) [ ]
+618	_T402 = 0 [ ]
+619	*(_T20 + 12) = _T402
+620	parm _T20
+621	parm _T21
+622	_T403 = *(_T20 + 0) [ ]
+623	_T404 = *(_T403 + 12) [ ]
+624	call _T404
+625	parm _T20
+626	parm _T21
+627	_T405 = *(_T20 + 0) [ ]
+628	_T406 = *(_T405 + 12) [ ]
+629	call _T406
+630	parm _T20
+631	parm _T21
+632	_T407 = *(_T20 + 0) [ ]
+633	_T408 = *(_T407 + 16) [ ]
+634	_T409 =  call _T408 [ ]
+635	_T410 = ! _T409 [ ]
+636	END BY BEQZ, if _T410 = 
+	    0 : goto 5; 1 : goto 1
+BASIC BLOCK 1 : 
+637	_T411 = 1 [ ]
+638	_T393 = _T411 [ ]
+639	END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+640	_T412 = *(_T20 + 4) [ ]
+641	_T413 = 21 [ ]
+642	_T414 = (_T412 <= _T413) [ ]
+643	_T415 = (_T414 && _T393) [ ]
+644	END BY BEQZ, if _T415 = 
+	    0 : goto 5; 1 : goto 3
+BASIC BLOCK 3 : 
+645	_T416 = *(_T20 + 24) [ ]
+646	parm _T416
+647	call _PrintString
+648	_T417 = ", your total is " [ ]
+649	parm _T417
+650	call _PrintString
+651	_T418 = *(_T20 + 4) [ ]
+652	parm _T418
+653	call _PrintInt
+654	_T419 = ".\n" [ ]
+655	parm _T419
+656	call _PrintString
+657	_T420 = "Would you like a hit?" [ ]
+658	parm _T20
+659	parm _T420
+660	_T421 = *(_T20 + 0) [ ]
+661	_T422 = *(_T421 + 44) [ ]
+662	_T423 =  call _T422 [ ]
+663	_T393 = _T423 [ ]
+664	END BY BEQZ, if _T393 = 
+	    0 : goto 2; 1 : goto 4
+BASIC BLOCK 4 : 
+665	parm _T20
+666	parm _T21
+667	_T424 = *(_T20 + 0) [ ]
+668	_T425 = *(_T424 + 12) [ ]
+669	call _T425
+670	END BY BRANCH, goto 2
+BASIC BLOCK 5 : 
+671	_T426 = *(_T20 + 4) [ ]
+672	_T427 = 21 [ ]
+673	_T428 = (_T426 > _T427) [ ]
+674	END BY BEQZ, if _T428 = 
+	    0 : goto 7; 1 : goto 6
+BASIC BLOCK 6 : 
+675	_T429 = *(_T20 + 24) [ ]
+676	parm _T429
+677	call _PrintString
+678	_T430 = " busts with the big " [ ]
+679	parm _T430
+680	call _PrintString
+681	_T431 = *(_T20 + 4) [ ]
+682	parm _T431
+683	call _PrintInt
+684	_T432 = "!\n" [ ]
+685	parm _T432
+686	call _PrintString
+687	END BY BRANCH, goto 8
+BASIC BLOCK 7 : 
+688	_T433 = *(_T20 + 24) [ ]
+689	parm _T433
+690	call _PrintString
+691	_T434 = " stays at " [ ]
+692	parm _T434
+693	call _PrintString
+694	_T435 = *(_T20 + 4) [ ]
+695	parm _T435
+696	call _PrintInt
+697	_T436 = ".\n" [ ]
+698	parm _T436
+699	call _PrintString
+700	END BY BRANCH, goto 8
+BASIC BLOCK 8 : 
+701	END BY RETURN, void result
+
+FUNCTION _Player.HasMoney : 
+BASIC BLOCK 0 : 
+702	_T437 = *(_T22 + 20) [ ]
+703	_T438 = 0 [ ]
+704	_T439 = (_T437 > _T438) [ ]
+705	END BY RETURN, result = _T439
+
+FUNCTION _Player.PrintMoney : 
+BASIC BLOCK 0 : 
+706	_T440 = *(_T23 + 24) [ ]
+707	parm _T440
+708	call _PrintString
+709	_T441 = ", you have $" [ ]
+710	parm _T441
+711	call _PrintString
+712	_T442 = *(_T23 + 20) [ ]
+713	parm _T442
+714	call _PrintInt
+715	_T443 = ".\n" [ ]
+716	parm _T443
+717	call _PrintString
+718	END BY RETURN, void result
+
+FUNCTION _Player.PlaceBet : 
+BASIC BLOCK 0 : 
+719	_T444 = *(_T24 + 16) [ ]
+720	_T445 = 0 [ ]
+721	*(_T24 + 16) = _T445
+722	parm _T24
+723	_T446 = *(_T24 + 0) [ ]
+724	_T447 = *(_T446 + 28) [ ]
+725	call _T447
+726	END BY BRANCH, goto 1
+BASIC BLOCK 1 : 
+727	_T448 = *(_T24 + 16) [ ]
+728	_T449 = 0 [ ]
+729	_T450 = (_T448 <= _T449) [ ]
+730	_T451 = *(_T24 + 16) [ ]
+731	_T452 = *(_T24 + 20) [ ]
+732	_T453 = (_T451 > _T452) [ ]
+733	_T454 = (_T450 || _T453) [ ]
+734	END BY BEQZ, if _T454 = 
+	    0 : goto 3; 1 : goto 2
+BASIC BLOCK 2 : 
+735	_T455 = "How much would you like to bet? " [ ]
+736	parm _T455
+737	call _PrintString
+738	_T456 = *(_T24 + 16) [ ]
+739	_T457 =  call _ReadInteger [ ]
+740	*(_T24 + 16) = _T457
+741	END BY BRANCH, goto 1
+BASIC BLOCK 3 : 
+742	END BY RETURN, void result
+
+FUNCTION _Player.GetTotal : 
+BASIC BLOCK 0 : 
+743	_T458 = *(_T25 + 4) [ ]
+744	END BY RETURN, result = _T458
+
+FUNCTION _Player.Resolve : 
+BASIC BLOCK 0 : 
+745	_T461 = 0 [ ]
+746	_T459 = _T461 [ ]
+747	_T462 = 0 [ ]
+748	_T460 = _T462 [ ]
+749	_T463 = *(_T26 + 4) [ ]
+750	_T464 = 21 [ ]
+751	_T465 = (_T463 == _T464) [ ]
+752	_T466 = *(_T26 + 12) [ ]
+753	_T467 = 2 [ ]
+754	_T468 = (_T466 == _T467) [ ]
+755	_T469 = (_T465 && _T468) [ ]
+756	END BY BEQZ, if _T469 = 
+	    0 : goto 2; 1 : goto 1
+BASIC BLOCK 1 : 
+757	_T470 = 2 [ ]
+758	_T459 = _T470 [ ]
+759	END BY BRANCH, goto 10
+BASIC BLOCK 2 : 
+760	_T471 = *(_T26 + 4) [ ]
+761	_T472 = 21 [ ]
+762	_T473 = (_T471 > _T472) [ ]
+763	END BY BEQZ, if _T473 = 
+	    0 : goto 4; 1 : goto 3
+BASIC BLOCK 3 : 
+764	_T474 = 1 [ ]
+765	_T460 = _T474 [ ]
+766	END BY BRANCH, goto 10
+BASIC BLOCK 4 : 
+767	_T475 = 21 [ ]
+768	_T476 = (_T27 > _T475) [ ]
+769	END BY BEQZ, if _T476 = 
+	    0 : goto 6; 1 : goto 5
+BASIC BLOCK 5 : 
+770	_T477 = 1 [ ]
+771	_T459 = _T477 [ ]
+772	END BY BRANCH, goto 10
+BASIC BLOCK 6 : 
+773	_T478 = *(_T26 + 4) [ ]
+774	_T479 = (_T478 > _T27) [ ]
+775	END BY BEQZ, if _T479 = 
+	    0 : goto 8; 1 : goto 7
+BASIC BLOCK 7 : 
+776	_T480 = 1 [ ]
+777	_T459 = _T480 [ ]
+778	END BY BRANCH, goto 10
+BASIC BLOCK 8 : 
+779	_T481 = *(_T26 + 4) [ ]
+780	_T482 = (_T27 > _T481) [ ]
+781	END BY BEQZ, if _T482 = 
+	    0 : goto 10; 1 : goto 9
+BASIC BLOCK 9 : 
+782	_T483 = 1 [ ]
+783	_T460 = _T483 [ ]
+784	END BY BRANCH, goto 10
+BASIC BLOCK 10 : 
+785	_T484 = 1 [ ]
+786	_T485 = (_T459 >= _T484) [ ]
+787	END BY BEQZ, if _T485 = 
+	    0 : goto 12; 1 : goto 11
+BASIC BLOCK 11 : 
+788	_T486 = *(_T26 + 24) [ ]
+789	parm _T486
+790	call _PrintString
+791	_T487 = ", you won $" [ ]
+792	parm _T487
+793	call _PrintString
+794	_T488 = *(_T26 + 16) [ ]
+795	parm _T488
+796	call _PrintInt
+797	_T489 = ".\n" [ ]
+798	parm _T489
+799	call _PrintString
+800	END BY BRANCH, goto 15
+BASIC BLOCK 12 : 
+801	_T490 = 1 [ ]
+802	_T491 = (_T460 >= _T490) [ ]
+803	END BY BEQZ, if _T491 = 
+	    0 : goto 14; 1 : goto 13
+BASIC BLOCK 13 : 
+804	_T492 = *(_T26 + 24) [ ]
+805	parm _T492
+806	call _PrintString
+807	_T493 = ", you lost $" [ ]
+808	parm _T493
+809	call _PrintString
+810	_T494 = *(_T26 + 16) [ ]
+811	parm _T494
+812	call _PrintInt
+813	_T495 = ".\n" [ ]
+814	parm _T495
+815	call _PrintString
+816	END BY BRANCH, goto 15
+BASIC BLOCK 14 : 
+817	_T496 = *(_T26 + 24) [ ]
+818	parm _T496
+819	call _PrintString
+820	_T497 = ", you push!\n" [ ]
+821	parm _T497
+822	call _PrintString
+823	END BY BRANCH, goto 15
+BASIC BLOCK 15 : 
+824	_T498 = *(_T26 + 16) [ ]
+825	_T499 = (_T459 * _T498) [ ]
+826	_T459 = _T499 [ ]
+827	_T500 = *(_T26 + 16) [ ]
+828	_T501 = (_T460 * _T500) [ ]
+829	_T460 = _T501 [ ]
+830	_T502 = *(_T26 + 20) [ ]
+831	_T503 = *(_T26 + 20) [ ]
+832	_T504 = (_T503 + _T459) [ ]
+833	_T505 = (_T504 - _T460) [ ]
+834	*(_T26 + 20) = _T505
+835	END BY RETURN, void result
+
+FUNCTION _Player.GetYesOrNo : 
+BASIC BLOCK 0 : 
+836	parm _T29
+837	call _PrintString
+838	_T506 = " (0=No/1=Yes) " [ ]
+839	parm _T506
+840	call _PrintString
+841	_T507 =  call _ReadInteger [ ]
+842	_T508 = 0 [ ]
+843	_T509 = (_T507 != _T508) [ ]
+844	END BY RETURN, result = _T509
+
+FUNCTION _Dealer.Init : 
+BASIC BLOCK 0 : 
+845	_T511 = *(_T30 + 4) [ ]
+846	_T512 = 0 [ ]
+847	*(_T30 + 4) = _T512
+848	_T513 = *(_T30 + 8) [ ]
+849	_T514 = 0 [ ]
+850	*(_T30 + 8) = _T514
+851	_T515 = *(_T30 + 12) [ ]
+852	_T516 = 0 [ ]
+853	*(_T30 + 12) = _T516
+854	_T517 = "Dealer" [ ]
+855	_T510 = _T517 [ ]
+856	_T518 = *(_T30 + 24) [ ]
+857	*(_T30 + 24) = _T510
+858	END BY RETURN, void result
+
+FUNCTION _Dealer.TakeTurn : 
+BASIC BLOCK 0 : 
+859	_T519 = "\n" [ ]
+860	parm _T519
+861	call _PrintString
+862	_T520 = *(_T32 + 24) [ ]
+863	parm _T520
+864	call _PrintString
+865	_T521 = "'s turn.\n" [ ]
+866	parm _T521
+867	call _PrintString
+868	END BY BRANCH, goto 1
+BASIC BLOCK 1 : 
+869	_T522 = *(_T32 + 4) [ ]
+870	_T523 = 16 [ ]
+871	_T524 = (_T522 <= _T523) [ ]
+872	END BY BEQZ, if _T524 = 
+	    0 : goto 3; 1 : goto 2
+BASIC BLOCK 2 : 
+873	parm _T32
+874	parm _T33
+875	_T525 = *(_T32 + 0) [ ]
+876	_T526 = *(_T525 + 12) [ ]
+877	call _T526
+878	END BY BRANCH, goto 1
+BASIC BLOCK 3 : 
+879	_T527 = *(_T32 + 4) [ ]
+880	_T528 = 21 [ ]
+881	_T529 = (_T527 > _T528) [ ]
+882	END BY BEQZ, if _T529 = 
+	    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+883	_T530 = *(_T32 + 24) [ ]
+884	parm _T530
+885	call _PrintString
+886	_T531 = " busts with the big " [ ]
+887	parm _T531
+888	call _PrintString
+889	_T532 = *(_T32 + 4) [ ]
+890	parm _T532
+891	call _PrintInt
+892	_T533 = "!\n" [ ]
+893	parm _T533
+894	call _PrintString
+895	END BY BRANCH, goto 6
+BASIC BLOCK 5 : 
+896	_T534 = *(_T32 + 24) [ ]
+897	parm _T534
+898	call _PrintString
+899	_T535 = " stays at " [ ]
+900	parm _T535
+901	call _PrintString
+902	_T536 = *(_T32 + 4) [ ]
+903	parm _T536
+904	call _PrintInt
+905	_T537 = ".\n" [ ]
+906	parm _T537
+907	call _PrintString
+908	END BY BRANCH, goto 6
+BASIC BLOCK 6 : 
+909	END BY RETURN, void result
+
+FUNCTION _House.SetupGame : 
+BASIC BLOCK 0 : 
+910	_T538 = "\nWelcome to CS143 BlackJack!\n" [ ]
+911	parm _T538
+912	call _PrintString
+913	_T539 = "---------------------------\n" [ ]
+914	parm _T539
+915	call _PrintString
+916	_T541 =  call _rndModule_New [ ]
+917	_T540 = _T541 [ ]
+918	_T542 = "Please enter a random number seed: " [ ]
+919	parm _T542
+920	call _PrintString
+921	_T543 =  call _ReadInteger [ ]
+922	parm _T540
+923	parm _T543
+924	_T544 = *(_T540 + 0) [ ]
+925	_T545 = *(_T544 + 8) [ ]
+926	call _T545
+927	_T546 = *(_T34 + 12) [ ]
+928	_T547 =  call _BJDeck_New [ ]
+929	*(_T34 + 12) = _T547
+930	_T548 = *(_T34 + 8) [ ]
+931	_T549 =  call _Dealer_New [ ]
+932	*(_T34 + 8) = _T549
+933	_T550 = *(_T34 + 12) [ ]
+934	parm _T550
+935	parm _T540
+936	_T551 = *(_T550 + 0) [ ]
+937	_T552 = *(_T551 + 8) [ ]
+938	call _T552
+939	_T553 = *(_T34 + 12) [ ]
+940	parm _T553
+941	_T554 = *(_T553 + 0) [ ]
+942	_T555 = *(_T554 + 16) [ ]
+943	call _T555
+944	END BY RETURN, void result
+
+FUNCTION _House.SetupPlayers : 
+BASIC BLOCK 0 : 
+945	_T558 = "How many players do we have today? " [ ]
+946	parm _T558
+947	call _PrintString
+948	_T559 =  call _ReadInteger [ ]
+949	_T557 = _T559 [ ]
+950	_T560 = *(_T35 + 4) [ ]
+951	_T561 = 0 [ ]
+952	_T562 = (_T557 < _T561) [ ]
+953	END BY BEQZ, if _T562 = 
+	    0 : goto 2; 1 : goto 1
+BASIC BLOCK 1 : 
+954	_T563 = "Decaf runtime error: Cannot create negative-sized array\n" [ ]
+955	parm _T563
+956	call _PrintString
+957	call _Halt
+958	END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+959	_T564 = 4 [ ]
+960	_T565 = (_T564 * _T557) [ ]
+961	_T566 = (_T564 + _T565) [ ]
+962	parm _T566
+963	_T567 =  call _Alloc [ ]
+964	*(_T567 + 0) = _T557
+965	_T568 = 0 [ ]
+966	_T567 = (_T567 + _T566) [ ]
+967	END BY BRANCH, goto 3
+BASIC BLOCK 3 : 
+968	_T566 = (_T566 - _T564) [ ]
+969	END BY BEQZ, if _T566 = 
+	    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+970	_T567 = (_T567 - _T564) [ ]
+971	*(_T567 + 0) = _T568
+972	END BY BRANCH, goto 3
+BASIC BLOCK 5 : 
+973	*(_T35 + 4) = _T567
+974	_T569 = 0 [ ]
+975	_T556 = _T569 [ ]
+976	END BY BRANCH, goto 7
+BASIC BLOCK 6 : 
+977	_T570 = 1 [ ]
+978	_T571 = (_T556 + _T570) [ ]
+979	_T556 = _T571 [ ]
+980	END BY BRANCH, goto 7
+BASIC BLOCK 7 : 
+981	_T572 = *(_T35 + 4) [ ]
+982	_T573 = *(_T572 - 4) [ ]
+983	_T574 = (_T556 < _T573) [ ]
+984	END BY BEQZ, if _T574 = 
+	    0 : goto 15; 1 : goto 8
+BASIC BLOCK 8 : 
+985	_T575 = *(_T35 + 4) [ ]
+986	_T576 = *(_T575 - 4) [ ]
+987	_T577 = (_T556 < _T576) [ ]
+988	END BY BEQZ, if _T577 = 
+	    0 : goto 10; 1 : goto 9
+BASIC BLOCK 9 : 
+989	_T578 = 0 [ ]
+990	_T579 = (_T556 < _T578) [ ]
+991	END BY BEQZ, if _T579 = 
+	    0 : goto 11; 1 : goto 10
+BASIC BLOCK 10 : 
+992	_T580 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+993	parm _T580
+994	call _PrintString
+995	call _Halt
+996	END BY BRANCH, goto 11
+BASIC BLOCK 11 : 
+997	_T581 = 4 [ ]
+998	_T582 = (_T556 * _T581) [ ]
+999	_T583 = (_T575 + _T582) [ ]
+1000	_T584 = *(_T583 + 0) [ ]
+1001	_T585 =  call _Player_New [ ]
+1002	_T586 = 4 [ ]
+1003	_T587 = (_T556 * _T586) [ ]
+1004	_T588 = (_T575 + _T587) [ ]
+1005	*(_T588 + 0) = _T585
+1006	_T589 = *(_T35 + 4) [ ]
+1007	_T590 = *(_T589 - 4) [ ]
+1008	_T591 = (_T556 < _T590) [ ]
+1009	END BY BEQZ, if _T591 = 
+	    0 : goto 13; 1 : goto 12
+BASIC BLOCK 12 : 
+1010	_T592 = 0 [ ]
+1011	_T593 = (_T556 < _T592) [ ]
+1012	END BY BEQZ, if _T593 = 
+	    0 : goto 14; 1 : goto 13
+BASIC BLOCK 13 : 
+1013	_T594 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+1014	parm _T594
+1015	call _PrintString
+1016	call _Halt
+1017	END BY BRANCH, goto 14
+BASIC BLOCK 14 : 
+1018	_T595 = 4 [ ]
+1019	_T596 = (_T556 * _T595) [ ]
+1020	_T597 = (_T589 + _T596) [ ]
+1021	_T598 = *(_T597 + 0) [ ]
+1022	_T599 = 1 [ ]
+1023	_T600 = (_T556 + _T599) [ ]
+1024	parm _T598
+1025	parm _T600
+1026	_T601 = *(_T598 + 0) [ ]
+1027	_T602 = *(_T601 + 8) [ ]
+1028	call _T602
+1029	END BY BRANCH, goto 6
+BASIC BLOCK 15 : 
+1030	END BY RETURN, void result
+
+FUNCTION _House.TakeAllBets : 
+BASIC BLOCK 0 : 
+1031	_T604 = "\nFirst, let's take bets.\n" [ ]
+1032	parm _T604
+1033	call _PrintString
+1034	_T605 = 0 [ ]
+1035	_T603 = _T605 [ ]
+1036	END BY BRANCH, goto 2
+BASIC BLOCK 1 : 
+1037	_T606 = 1 [ ]
+1038	_T607 = (_T603 + _T606) [ ]
+1039	_T603 = _T607 [ ]
+1040	END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+1041	_T608 = *(_T36 + 4) [ ]
+1042	_T609 = *(_T608 - 4) [ ]
+1043	_T610 = (_T603 < _T609) [ ]
+1044	END BY BEQZ, if _T610 = 
+	    0 : goto 11; 1 : goto 3
+BASIC BLOCK 3 : 
+1045	_T611 = *(_T36 + 4) [ ]
+1046	_T612 = *(_T611 - 4) [ ]
+1047	_T613 = (_T603 < _T612) [ ]
+1048	END BY BEQZ, if _T613 = 
+	    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+1049	_T614 = 0 [ ]
+1050	_T615 = (_T603 < _T614) [ ]
+1051	END BY BEQZ, if _T615 = 
+	    0 : goto 6; 1 : goto 5
+BASIC BLOCK 5 : 
+1052	_T616 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+1053	parm _T616
+1054	call _PrintString
+1055	call _Halt
+1056	END BY BRANCH, goto 6
+BASIC BLOCK 6 : 
+1057	_T617 = 4 [ ]
+1058	_T618 = (_T603 * _T617) [ ]
+1059	_T619 = (_T611 + _T618) [ ]
+1060	_T620 = *(_T619 + 0) [ ]
+1061	parm _T620
+1062	_T621 = *(_T620 + 0) [ ]
+1063	_T622 = *(_T621 + 24) [ ]
+1064	_T623 =  call _T622 [ ]
+1065	END BY BEQZ, if _T623 = 
+	    0 : goto 1; 1 : goto 7
+BASIC BLOCK 7 : 
+1066	_T624 = *(_T36 + 4) [ ]
+1067	_T625 = *(_T624 - 4) [ ]
+1068	_T626 = (_T603 < _T625) [ ]
+1069	END BY BEQZ, if _T626 = 
+	    0 : goto 9; 1 : goto 8
+BASIC BLOCK 8 : 
+1070	_T627 = 0 [ ]
+1071	_T628 = (_T603 < _T627) [ ]
+1072	END BY BEQZ, if _T628 = 
+	    0 : goto 10; 1 : goto 9
+BASIC BLOCK 9 : 
+1073	_T629 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+1074	parm _T629
+1075	call _PrintString
+1076	call _Halt
+1077	END BY BRANCH, goto 10
+BASIC BLOCK 10 : 
+1078	_T630 = 4 [ ]
+1079	_T631 = (_T603 * _T630) [ ]
+1080	_T632 = (_T624 + _T631) [ ]
+1081	_T633 = *(_T632 + 0) [ ]
+1082	parm _T633
+1083	_T634 = *(_T633 + 0) [ ]
+1084	_T635 = *(_T634 + 32) [ ]
+1085	call _T635
+1086	END BY BRANCH, goto 1
+BASIC BLOCK 11 : 
+1087	END BY RETURN, void result
+
+FUNCTION _House.TakeAllTurns : 
+BASIC BLOCK 0 : 
+1088	_T637 = 0 [ ]
+1089	_T636 = _T637 [ ]
+1090	END BY BRANCH, goto 2
+BASIC BLOCK 1 : 
+1091	_T638 = 1 [ ]
+1092	_T639 = (_T636 + _T638) [ ]
+1093	_T636 = _T639 [ ]
+1094	END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+1095	_T640 = *(_T37 + 4) [ ]
+1096	_T641 = *(_T640 - 4) [ ]
+1097	_T642 = (_T636 < _T641) [ ]
+1098	END BY BEQZ, if _T642 = 
+	    0 : goto 11; 1 : goto 3
+BASIC BLOCK 3 : 
+1099	_T643 = *(_T37 + 4) [ ]
+1100	_T644 = *(_T643 - 4) [ ]
+1101	_T645 = (_T636 < _T644) [ ]
+1102	END BY BEQZ, if _T645 = 
+	    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+1103	_T646 = 0 [ ]
+1104	_T647 = (_T636 < _T646) [ ]
+1105	END BY BEQZ, if _T647 = 
+	    0 : goto 6; 1 : goto 5
+BASIC BLOCK 5 : 
+1106	_T648 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+1107	parm _T648
+1108	call _PrintString
+1109	call _Halt
+1110	END BY BRANCH, goto 6
+BASIC BLOCK 6 : 
+1111	_T649 = 4 [ ]
+1112	_T650 = (_T636 * _T649) [ ]
+1113	_T651 = (_T643 + _T650) [ ]
+1114	_T652 = *(_T651 + 0) [ ]
+1115	parm _T652
+1116	_T653 = *(_T652 + 0) [ ]
+1117	_T654 = *(_T653 + 24) [ ]
+1118	_T655 =  call _T654 [ ]
+1119	END BY BEQZ, if _T655 = 
+	    0 : goto 1; 1 : goto 7
+BASIC BLOCK 7 : 
+1120	_T656 = *(_T37 + 4) [ ]
+1121	_T657 = *(_T656 - 4) [ ]
+1122	_T658 = (_T636 < _T657) [ ]
+1123	END BY BEQZ, if _T658 = 
+	    0 : goto 9; 1 : goto 8
+BASIC BLOCK 8 : 
+1124	_T659 = 0 [ ]
+1125	_T660 = (_T636 < _T659) [ ]
+1126	END BY BEQZ, if _T660 = 
+	    0 : goto 10; 1 : goto 9
+BASIC BLOCK 9 : 
+1127	_T661 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+1128	parm _T661
+1129	call _PrintString
+1130	call _Halt
+1131	END BY BRANCH, goto 10
+BASIC BLOCK 10 : 
+1132	_T662 = 4 [ ]
+1133	_T663 = (_T636 * _T662) [ ]
+1134	_T664 = (_T656 + _T663) [ ]
+1135	_T665 = *(_T664 + 0) [ ]
+1136	_T666 = *(_T37 + 12) [ ]
+1137	parm _T665
+1138	parm _T666
+1139	_T667 = *(_T665 + 0) [ ]
+1140	_T668 = *(_T667 + 20) [ ]
+1141	call _T668
+1142	END BY BRANCH, goto 1
+BASIC BLOCK 11 : 
+1143	END BY RETURN, void result
+
+FUNCTION _House.ResolveAllPlayers : 
+BASIC BLOCK 0 : 
+1144	_T670 = "\nTime to resolve bets.\n" [ ]
+1145	parm _T670
+1146	call _PrintString
+1147	_T671 = 0 [ ]
+1148	_T669 = _T671 [ ]
+1149	END BY BRANCH, goto 2
+BASIC BLOCK 1 : 
+1150	_T672 = 1 [ ]
+1151	_T673 = (_T669 + _T672) [ ]
+1152	_T669 = _T673 [ ]
+1153	END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+1154	_T674 = *(_T38 + 4) [ ]
+1155	_T675 = *(_T674 - 4) [ ]
+1156	_T676 = (_T669 < _T675) [ ]
+1157	END BY BEQZ, if _T676 = 
+	    0 : goto 11; 1 : goto 3
+BASIC BLOCK 3 : 
+1158	_T677 = *(_T38 + 4) [ ]
+1159	_T678 = *(_T677 - 4) [ ]
+1160	_T679 = (_T669 < _T678) [ ]
+1161	END BY BEQZ, if _T679 = 
+	    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+1162	_T680 = 0 [ ]
+1163	_T681 = (_T669 < _T680) [ ]
+1164	END BY BEQZ, if _T681 = 
+	    0 : goto 6; 1 : goto 5
+BASIC BLOCK 5 : 
+1165	_T682 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+1166	parm _T682
+1167	call _PrintString
+1168	call _Halt
+1169	END BY BRANCH, goto 6
+BASIC BLOCK 6 : 
+1170	_T683 = 4 [ ]
+1171	_T684 = (_T669 * _T683) [ ]
+1172	_T685 = (_T677 + _T684) [ ]
+1173	_T686 = *(_T685 + 0) [ ]
+1174	parm _T686
+1175	_T687 = *(_T686 + 0) [ ]
+1176	_T688 = *(_T687 + 24) [ ]
+1177	_T689 =  call _T688 [ ]
+1178	END BY BEQZ, if _T689 = 
+	    0 : goto 1; 1 : goto 7
+BASIC BLOCK 7 : 
+1179	_T690 = *(_T38 + 4) [ ]
+1180	_T691 = *(_T690 - 4) [ ]
+1181	_T692 = (_T669 < _T691) [ ]
+1182	END BY BEQZ, if _T692 = 
+	    0 : goto 9; 1 : goto 8
+BASIC BLOCK 8 : 
+1183	_T693 = 0 [ ]
+1184	_T694 = (_T669 < _T693) [ ]
+1185	END BY BEQZ, if _T694 = 
+	    0 : goto 10; 1 : goto 9
+BASIC BLOCK 9 : 
+1186	_T695 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+1187	parm _T695
+1188	call _PrintString
+1189	call _Halt
+1190	END BY BRANCH, goto 10
+BASIC BLOCK 10 : 
+1191	_T696 = 4 [ ]
+1192	_T697 = (_T669 * _T696) [ ]
+1193	_T698 = (_T690 + _T697) [ ]
+1194	_T699 = *(_T698 + 0) [ ]
+1195	_T700 = *(_T38 + 8) [ ]
+1196	parm _T700
+1197	_T701 = *(_T700 + 0) [ ]
+1198	_T702 = *(_T701 + 36) [ ]
+1199	_T703 =  call _T702 [ ]
+1200	parm _T699
+1201	parm _T703
+1202	_T704 = *(_T699 + 0) [ ]
+1203	_T705 = *(_T704 + 40) [ ]
+1204	call _T705
+1205	END BY BRANCH, goto 1
+BASIC BLOCK 11 : 
+1206	END BY RETURN, void result
+
+FUNCTION _House.PrintAllMoney : 
+BASIC BLOCK 0 : 
+1207	_T707 = 0 [ ]
+1208	_T706 = _T707 [ ]
+1209	END BY BRANCH, goto 2
+BASIC BLOCK 1 : 
+1210	_T708 = 1 [ ]
+1211	_T709 = (_T706 + _T708) [ ]
+1212	_T706 = _T709 [ ]
+1213	END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+1214	_T710 = *(_T39 + 4) [ ]
+1215	_T711 = *(_T710 - 4) [ ]
+1216	_T712 = (_T706 < _T711) [ ]
+1217	END BY BEQZ, if _T712 = 
+	    0 : goto 7; 1 : goto 3
+BASIC BLOCK 3 : 
+1218	_T713 = *(_T39 + 4) [ ]
+1219	_T714 = *(_T713 - 4) [ ]
+1220	_T715 = (_T706 < _T714) [ ]
+1221	END BY BEQZ, if _T715 = 
+	    0 : goto 5; 1 : goto 4
+BASIC BLOCK 4 : 
+1222	_T716 = 0 [ ]
+1223	_T717 = (_T706 < _T716) [ ]
+1224	END BY BEQZ, if _T717 = 
+	    0 : goto 6; 1 : goto 5
+BASIC BLOCK 5 : 
+1225	_T718 = "Decaf runtime error: Array subscript out of bounds\n" [ ]
+1226	parm _T718
+1227	call _PrintString
+1228	call _Halt
+1229	END BY BRANCH, goto 6
+BASIC BLOCK 6 : 
+1230	_T719 = 4 [ ]
+1231	_T720 = (_T706 * _T719) [ ]
+1232	_T721 = (_T713 + _T720) [ ]
+1233	_T722 = *(_T721 + 0) [ ]
+1234	parm _T722
+1235	_T723 = *(_T722 + 0) [ ]
+1236	_T724 = *(_T723 + 28) [ ]
+1237	call _T724
+1238	END BY BRANCH, goto 1
+BASIC BLOCK 7 : 
+1239	END BY RETURN, void result
+
+FUNCTION _House.PlayOneGame : 
+BASIC BLOCK 0 : 
+1240	_T725 = *(_T40 + 12) [ ]
+1241	parm _T725
+1242	_T726 = *(_T725 + 0) [ ]
+1243	_T727 = *(_T726 + 20) [ ]
+1244	_T728 =  call _T727 [ ]
+1245	_T729 = 26 [ ]
+1246	_T730 = (_T728 < _T729) [ ]
+1247	END BY BEQZ, if _T730 = 
+	    0 : goto 2; 1 : goto 1
+BASIC BLOCK 1 : 
+1248	_T731 = *(_T40 + 12) [ ]
+1249	parm _T731
+1250	_T732 = *(_T731 + 0) [ ]
+1251	_T733 = *(_T732 + 16) [ ]
+1252	call _T733
+1253	END BY BRANCH, goto 2
+BASIC BLOCK 2 : 
+1254	parm _T40
+1255	_T734 = *(_T40 + 0) [ ]
+1256	_T735 = *(_T734 + 16) [ ]
+1257	call _T735
+1258	_T736 = "\nDealer starts. " [ ]
+1259	parm _T736
+1260	call _PrintString
+1261	_T737 = *(_T40 + 8) [ ]
+1262	_T738 = 0 [ ]
+1263	parm _T737
+1264	parm _T738
+1265	_T739 = *(_T737 + 0) [ ]
+1266	_T740 = *(_T739 + 8) [ ]
+1267	call _T740
+1268	_T741 = *(_T40 + 8) [ ]
+1269	_T742 = *(_T40 + 12) [ ]
+1270	parm _T741
+1271	parm _T742
+1272	_T743 = *(_T741 + 0) [ ]
+1273	_T744 = *(_T743 + 12) [ ]
+1274	call _T744
+1275	parm _T40
+1276	_T745 = *(_T40 + 0) [ ]
+1277	_T746 = *(_T745 + 20) [ ]
+1278	call _T746
+1279	_T747 = *(_T40 + 8) [ ]
+1280	_T748 = *(_T40 + 12) [ ]
+1281	parm _T747
+1282	parm _T748
+1283	_T749 = *(_T747 + 0) [ ]
+1284	_T750 = *(_T749 + 20) [ ]
+1285	call _T750
+1286	parm _T40
+1287	_T751 = *(_T40 + 0) [ ]
+1288	_T752 = *(_T751 + 24) [ ]
+1289	call _T752
+1290	END BY RETURN, void result
+
+FUNCTION main : 
+BASIC BLOCK 0 : 
+1291	_T754 = 1 [ ]
+1292	_T753 = _T754 [ ]
+1293	_T756 =  call _House_New [ ]
+1294	_T755 = _T756 [ ]
+1295	parm _T755
+1296	_T757 = *(_T755 + 0) [ ]
+1297	_T758 = *(_T757 + 8) [ ]
+1298	call _T758
+1299	parm _T755
+1300	_T759 = *(_T755 + 0) [ ]
+1301	_T760 = *(_T759 + 12) [ ]
+1302	call _T760
+1303	END BY BRANCH, goto 1
+BASIC BLOCK 1 : 
+1304	END BY BEQZ, if _T753 = 
+	    0 : goto 3; 1 : goto 2
+BASIC BLOCK 2 : 
+1305	parm _T755
+1306	_T761 = *(_T755 + 0) [ ]
+1307	_T762 = *(_T761 + 32) [ ]
+1308	call _T762
+1309	_T763 = "\nDo you want to play another hand?" [ ]
+1310	parm _T763
+1311	_T764 =  call _Main.GetYesOrNo [ ]
+1312	_T753 = _T764 [ ]
+1313	END BY BRANCH, goto 1
+BASIC BLOCK 3 : 
+1314	parm _T755
+1315	_T765 = *(_T755 + 0) [ ]
+1316	_T766 = *(_T765 + 28) [ ]
+1317	call _T766
+1318	_T767 = "Thank you for playing...come again soon.\n" [ ]
+1319	parm _T767
+1320	call _PrintString
+1321	_T768 = "\nCS143 BlackJack Copyright (c) 1999 by Peter Mork.\n" [ ]
+1322	parm _T768
+1323	call _PrintString
+1324	_T769 = "(2001 mods by jdz)\n" [ ]
+1325	parm _T769
+1326	call _PrintString
+1327	END BY RETURN, void result
+
+FUNCTION _Main.GetYesOrNo : 
+BASIC BLOCK 0 : 
+1328	parm _T41
+1329	call _PrintString
+1330	_T770 = " (0=No/1=Yes) " [ ]
+1331	parm _T770
+1332	call _PrintString
+1333	_T771 =  call _ReadInteger [ ]
+1334	_T772 = 0 [ ]
+1335	_T773 = (_T771 != _T772) [ ]
+1336	END BY RETURN, result = _T773
+
